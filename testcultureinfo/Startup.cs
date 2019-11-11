@@ -76,9 +76,7 @@ namespace testcultureinfo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //var cultureInfo = CultureInfo.GetCultureInfo("th-TH");
-            //Thread.CurrentThread.CurrentCulture = cultureInfo;
-            //Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            
 
             if (env.IsDevelopment())
             {
