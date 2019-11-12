@@ -20,14 +20,7 @@ services:
          POSTGRESQL_PASSWORD: password
          POSTGRESQL_DATABASE: postgres
      ports:
-       - "127.0.0.1:5432:5432"
+       - "5432:5432"
      volumes:
        - /root/database/postgresql:/bitnami/postgresql
-     deploy:
-       replicas: 1
-       restart_policy:
-         condition: on-failure
-       placement:
-         constraints:
-            - node.labels.role == main
 
