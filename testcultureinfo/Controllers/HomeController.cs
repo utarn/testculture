@@ -11,7 +11,6 @@ using testcultureinfo.Models;
 
 namespace testcultureinfo.Controllers
 {
-    [Internationalization]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,6 +26,16 @@ namespace testcultureinfo.Controllers
         {
             _dbContext.Samples.Where(s => s.Name == "aaa");
             return View();
+        }
+
+        public IActionResult Create()
+        {
+            var sample = new Sample
+            {
+                Id = 1,
+                Name = "test"
+            };
+            return View(sample);
         }
 
         public IActionResult Privacy()

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using System.Globalization;
 using System.Threading;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Localization;
 
 namespace testcultureinfo
 {
@@ -76,7 +77,19 @@ namespace testcultureinfo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            
+            var supportedCultures = new[]
+             {
+                new CultureInfo("th-TH"),
+            };
+
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("th-TH"),
+                // Formatting numbers, dates, etc.
+                SupportedCultures = supportedCultures,
+                // UI strings that we have localized.
+                SupportedUICultures = supportedCultures
+            });
 
             if (env.IsDevelopment())
             {
